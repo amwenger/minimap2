@@ -229,10 +229,10 @@ static void mm_update_cigar_eqx(mm_reg1_t *r, const uint8_t *qseq, const uint8_t
 		if (op == 0) {
 			while (len > 0) {
 				for (l = 0; l < len && qseq[qoff + l] == tseq[toff + l]; ++l) {} // run of "="; TODO: N<=>N is converted to "="
-				if (l > 0) { ++n_EQX; len -= l; toff += l, qoff += l; }
+				if (l > 0) { ++n_EQX; len -= l; toff += l; qoff += l; }
 
 				for (l = 0; l < len && qseq[qoff + l] != tseq[toff + l]; ++l) {} // run of "X"
-				if (l > 0) { ++n_EQX; len -= l; toff += l, qoff += l; }
+				if (l > 0) { ++n_EQX; len -= l; toff += l; qoff += l; }
 			}
 			++n_M;
 		} else if (op == 1) { // insertion
